@@ -1,0 +1,9 @@
+{
+  "name": "common",
+  "default_attributes": {
+    "tz": "Asia/Tokyo"
+  },
+  "run_list": [
+    "recipe[timezone-ii]"
+  ]
+}

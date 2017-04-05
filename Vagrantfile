@@ -9,15 +9,15 @@ Vagrant.configure(2) do |config|
 
   config.omnibus.chef_version=:latest
 
-  #config.vm.provision "chef_zero" do |chef|
-  #  chef.cookbooks_path = [
-  #      "./chef-repo/cookbooks",
-  #      "./chef-repo/site-cookbooks"
-  #  ]
-  #  chef.roles_path = "./chef-repo/roles"
-  #  chef.add_role "database"
-  #  chef.environments_path = "./chef-repo/environments"
-  #  chef.environment = "st"
-  #end
+  config.vm.provision "chef_zero" do |chef|
+    chef.cookbooks_path = [
+        "./chef-repo/cookbooks",
+        "./chef-repo/site-cookbooks"
+    ]
+    chef.roles_path = "./chef-repo/roles"
+    chef.add_role "common"
+    #chef.environments_path = "./chef-repo/environments"
+    #chef.environment = "st"
+  end
 
 end
