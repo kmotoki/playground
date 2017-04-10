@@ -19,6 +19,7 @@ Vagrant.configure(2) do |config|
     chef.add_role "database"
     chef.add_role "web"
     chef.nodes_path = "./chef-repo/nodes"
+    chef.node_name = "default"
     #chef.environments_path = "./chef-repo/environments"
     #chef.environment = "st"
   end

@@ -1,11 +1,11 @@
-playground-application CHANGELOG
+playground-web CHANGELOG
 ================================
 
-This file is used to list changes made in each version of the playground-application cookbook.
+This file is used to list changes made in each version of the playground-web cookbook.
 
 0.1.0
 -----
-- [your_name] - Initial release of playground-application
+- [your_name] - Initial release of playground-web
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
