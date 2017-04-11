@@ -7,7 +7,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.network "private_network", ip: "192.168.33.20"
 
-  config.omnibus.chef_version=:latest
+  config.omnibus.chef_version = "12.19.36"
 
   config.vm.provision "chef_zero" do |chef|
     chef.cookbooks_path = [
