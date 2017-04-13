@@ -1,6 +1,6 @@
 source "https://supermarket.chef.io"
 
-cookbook 'timezone-ii', '~> 0.2.0'
+cookbook 'timezone-ii', github: 'Stromweld/timezone-ii', branch: 'master'
 cookbook 'selinux', '~> 1.0.3'
 cookbook 'mysql', '~> 8.3.1'
 cookbook 'php', '~> 3.0.0'
