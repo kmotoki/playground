@@ -21,6 +21,8 @@ rpm_package 'mysql-community-release' do
   action :install
 end
 
+package node['apache']['devel_package']
+
 package 'php' do
     action :remove
 end
