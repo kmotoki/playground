@@ -3,7 +3,8 @@
   "default_attributes": {
     "php": {
       "configure_options": [
-        "--enable-intl"
+        "--enable-intl",
+        "--with-apxs2=/bin/apxs"
       ]
     }
   },
@@ -21,7 +22,6 @@
   "run_list": [
     "recipe[apache2]",
     "recipe[apache2::mod_rewrite]",
-    "recipe[apache2::mod_php5]",
     "recipe[playground-web]",
     "recipe[php]",
     "recipe[composer]"
