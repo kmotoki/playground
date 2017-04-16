@@ -1,0 +1,8 @@
+{
+  "name": "dev",
+  "override_attributes": {
+    "playground": {
+        "hostname": "playground.kmotoki.example.com"
+    }
+  }
+}

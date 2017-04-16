@@ -23,6 +23,12 @@ end
 
 package node['apache']['devel_package']
 
+web_app 'my_app' do
+    cookbook 'apache2'
+    server_name node['playground']['hostname']
+    docroot node['apache']['docroot_dir']
+end
+
 package 'php' do
     action :remove
 end
