@@ -1,0 +1,24 @@
+machine:
+    timezone:
+        Asia/Tokyo
+dependencies:
+    cache_directories:
+        - .vagrant
+        - ~/.vagrant.d
+    pre:
+        - wget https://packages.chef.io/files/stable/chefdk/1.3.43/debian/8/chefdk_1.3.43-1_amd64.deb
+        - sudo dpkg -i chefdk_1.3.43-1_amd64.deb
+
+        - wget http://download.virtualbox.org/virtualbox/5.1.20/virtualbox-5.1_5.1.20-114628~Ubuntu~trusty_amd64.deb
+        - sudo dpkg -i virtualbox-5.1_5.1.20-114628~Ubuntu~trusty_amd64.deb
+
+        - wget https://releases.hashicorp.com/vagrant/1.9.3/vagrant_1.9.3_x86_64.deb
+        - sudo dpkg -i vagrant_1.9.3_x86_64.deb
+        - vagrant plugin install vagrant-berkshelf vagrant-chef-zero vagrant-omnibus vagrant-vbguest
+test:
+    pre:
+        - berks vendor --berksfile=chef-repo/Berksfile chef-repo/cookbooks 
+    override:
+        - vagrant up
+    post:
+        - vagrant destroy --force
