@@ -16,7 +16,11 @@
       "checksum": "4bfadd0012b966eced448497272150ffeede13136a961aacb9e71553b8e929ec"
     },
     "apache": {
-      "version": "2.4"
+      "version": "2.4",
+      "mod_php": {
+        "so_filename": "libphp7.so",
+        "module_name": "php7"
+      }
     }
   },
   "run_list": [
@@ -24,6 +28,7 @@
     "recipe[apache2::mod_rewrite]",
     "recipe[playground-web]",
     "recipe[php]",
+    "recipe[apache2::mod_php]",
     "recipe[composer]"
   ]
 }
