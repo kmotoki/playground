@@ -21,12 +21,12 @@ rpm_package 'mysql-community-release' do
   action :install
 end
 
+include_recipe "apache2"
+include_recipe "apache2::mod_rewrite"
 package node['apache']['devel_package']
-
-web_app node['playground']['hostname'] do
+apache_conf 'php' do
     cookbook 'apache2'
-    server_name node['playground']['hostname']
-    docroot node['apache']['docroot_dir']
+    source 'mods/php.conf.erb'
 end
 
 package 'php' do
@@ -40,4 +40,17 @@ end
 
 package 'libicu-devel' do
   action :install
+end
+
+include_recipe "php"
+include_recipe "composer"
+
+execute 'install_cakephp' do
+  command "composer self-update && composer create-project --prefer-dist --no-interaction cakephp/app #{node['playground-web']['cake_dir']}"
+end
+
+web_app node['playground']['hostname'] do
+    cookbook 'apache2'
+    server_name node['playground']['hostname']
+    docroot "#{node['playground-web']['cake_dir']}/webroot"
 end
